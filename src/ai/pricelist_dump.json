@@ -1,0 +1,450 @@
+[
+  {
+    "id": "3205eff7-4157-47a9-bccc-16f321551b72",
+    "name": "100 Level (Sea 1)",
+    "type": "LEVELING",
+    "basePrice": 3000,
+    "requirements": "[\"Level 1-700\"]",
+    "description": "Layanan joki untuk menaikkan 100 level di Sea 1."
+  },
+  {
+    "id": "150126a0-0b79-4796-9b34-d68fc91797ef",
+    "name": "100 Level (Sea 2/3)",
+    "type": "LEVELING",
+    "basePrice": 4000,
+    "requirements": "[\"Level 700+\",\"Sudah di Second Sea atau Third Sea\"]",
+    "description": "Layanan joki untuk menaikkan 100 level di Sea 2 atau Sea 3."
+  },
+  {
+    "id": "be02f153-4f3a-4d70-a888-30f0d8b5ff64",
+    "name": "1 Juta Belly (Sea 2/3)",
+    "type": "LEVELING",
+    "basePrice": 3000,
+    "requirements": "[\"Level 700+\",\"Sudah di Second Sea atau Third Sea\"]",
+    "description": "Layanan joki untuk mendapatkan 1 juta Belly di Sea 2 atau Sea 3."
+  },
+  {
+    "id": "06154cbb-ad57-4d5d-b655-ecb3ceb9af99",
+    "name": "100 Mastery (Sword)",
+    "type": "LEVELING",
+    "basePrice": 3000,
+    "requirements": "[\"Memiliki pedang yang ingin dimasterykan\"]",
+    "description": "Layanan joki untuk menaikkan 100 mastery pada pedang."
+  },
+  {
+    "id": "e1b7282b-7162-4507-9da1-796f16b63654",
+    "name": "100 Mastery (Gun)",
+    "type": "LEVELING",
+    "basePrice": 4000,
+    "requirements": "[\"Memiliki senjata api yang ingin dimasterykan\"]",
+    "description": "Layanan joki untuk menaikkan 100 mastery pada senjata api."
+  },
+  {
+    "id": "fd316995-b8ed-492d-9ba4-d06649d46cb7",
+    "name": "100 Mastery (Fruit)",
+    "type": "LEVELING",
+    "basePrice": 4000,
+    "requirements": "[\"Memiliki buah iblis yang ingin dimasterykan\"]",
+    "description": "Layanan joki untuk menaikkan 100 mastery pada buah iblis."
+  },
+  {
+    "id": "b5ff3bd4-3093-44dc-a103-dce4890a2a39",
+    "name": "100 Mastery (Fruit - Control/Buddha)",
+    "type": "LEVELING",
+    "basePrice": 5000,
+    "requirements": "[\"Memiliki buah iblis Control atau Buddha yang ingin dimasterykan\"]",
+    "description": "Layanan joki untuk menaikkan 100 mastery pada buah iblis Control atau Buddha."
+  },
+  {
+    "id": "a598d7af-d790-4210-8d59-35a942b05e11",
+    "name": "Cursed Dual Katana (CDK) All Scroll",
+    "type": "ITEM",
+    "basePrice": 24000,
+    "requirements": "[\"Level 2200+\",\"Memiliki Yama (350 Mastery)\",\"Memiliki Tushita (350 Mastery)\",\"Quest 3 Cursed Dual Katana Scroll\"]",
+    "description": "Layanan joki untuk menyelesaikan semua quest scroll Cursed Dual Katana."
+  },
+  {
+    "id": "a14d84b6-a822-444e-9453-6aacf7803b59",
+    "name": "1 Cursed Dual Katana (CDK) Scroll",
+    "type": "ITEM",
+    "basePrice": 4000,
+    "requirements": "[\"Level 2200+\",\"Memiliki Yama atau Tushita (350 Mastery untuk pedang terkait)\",\"Quest Cursed Dual Katana Scroll\"]",
+    "description": "Layanan joki untuk menyelesaikan 1 quest scroll Cursed Dual Katana."
+  },
+  {
+    "id": "775f7b20-72ef-49ae-ba6a-c6e73d77479f",
+    "name": "Dark Blade v2",
+    "type": "ITEM",
+    "basePrice": 6000,
+    "requirements": "[\"Memiliki Dark Blade\",\"Level 1500+\",\"Quest Dark Blade v2\"]",
+    "description": "Layanan joki untuk mendapatkan upgrade Dark Blade ke versi 2."
+  },
+  {
+    "id": "9569fa5f-dcf3-4322-a2b6-252a5296c55c",
+    "name": "Dark Blade v3",
+    "type": "ITEM",
+    "basePrice": 65000,
+    "requirements": "[\"Memiliki Dark Blade v2\",\"Level 1500+\",\"Quest Dark Blade v3\"]",
+    "description": "Layanan joki untuk mendapatkan upgrade Dark Blade ke versi 3."
+  },
+  {
+    "id": "aaf76cec-6bdd-4dc8-8a35-fadffdc344e8",
+    "name": "Hollow Scythe",
+    "type": "ITEM",
+    "basePrice": 15000,
+    "requirements": "[\"Level 1500+\",\"Kalahkan Soul Reaper (Boss)\"]",
+    "description": "Layanan joki untuk mendapatkan pedang Hollow Scythe."
+  },
+  {
+    "id": "f4606177-b8c1-4fa8-b055-4352be69f11c",
+    "name": "True Triple Katana (TTK)",
+    "type": "ITEM",
+    "basePrice": 25000,
+    "requirements": "[\"Level 700+\",\"Memiliki Wando (300 Mastery)\",\"Memiliki Shisui (300 Mastery)\",\"Memiliki Saddi (300 Mastery)\",\"2\",\"000\",\"000 Beli\"]",
+    "description": "Layanan joki untuk mendapatkan pedang True Triple Katana, termasuk mendapatkan semua pedang komponen (Wando, Shisui, Saddi)."
+  },
+  {
+    "id": "3709e54a-4f14-4663-af28-c08244de50da",
+    "name": "Tushita",
+    "type": "ITEM",
+    "basePrice": 15000,
+    "requirements": "[\"Level 1500+\",\"Kalahkan Cake Prince\",\"Menyelesaikan quest 3 torchlight\"]",
+    "description": "Layanan joki untuk mendapatkan pedang Tushita."
+  },
+  {
+    "id": "d9362ac8-111e-47dc-8bee-a976dccb69dd",
+    "name": "Yama",
+    "type": "ITEM",
+    "basePrice": 15000,
+    "requirements": "[\"Level 1500+\",\"Kalahkan Elite Pirate / Sea Beast untuk Haunted Castle Key\",\"Mengalahkan 20 Elite Pirate\",\"Menyelesaikan puzzle Yama\"]",
+    "description": "Layanan joki untuk mendapatkan pedang Yama."
+  },
+  {
+    "id": "4385cfd4-19b4-470b-a329-2f5d6ded73b0",
+    "name": "Legendary Sword (per pedang)",
+    "type": "ITEM",
+    "basePrice": 8000,
+    "requirements": "[\"Level 700+\",\"Mencari Legendary Sword Dealer di Sea 2\"]",
+    "description": "Layanan joki untuk mendapatkan satu pedang legendaris dari Legendary Sword Dealer (Wando/Shisui/Saddi)."
+  },
+  {
+    "id": "880d71f7-1224-414f-8147-726d8f9e1e54",
+    "name": "Soul Guitar (Tanpa Bahan)",
+    "type": "ITEM",
+    "basePrice": 25000,
+    "requirements": "[\"Level 2300+\",\"Bulan Purnama (Full Moon)\"]",
+    "description": "Layanan joki untuk mendapatkan Soul Guitar, semua bahan (Bones, Ectoplasm, Dark Fragment, Fragments) akan dikumpulkan oleh joki."
+  },
+  {
+    "id": "c7c5385e-f4b2-41cd-94e0-585932d46bd0",
+    "name": "Soul Guitar (Dengan Bahan)",
+    "type": "ITEM",
+    "basePrice": 10000,
+    "requirements": "[\"Level 2300+\",\"Bulan Purnama (Full Moon)\",\"Bones: 500\",\"Ectoplasm: 250\",\"Dark Fragment: 1\",\"Fragments: 5000\"]",
+    "description": "Layanan joki untuk mendapatkan Soul Guitar. Pelanggan harus menyediakan semua bahan yang diperlukan (Bones, Ectoplasm, Dark Fragment, Fragments)."
+  },
+  {
+    "id": "ba7b07d3-904d-4e15-bf5a-f819fd6e5f53",
+    "name": "Acidum Rifle",
+    "type": "ITEM",
+    "basePrice": 10000,
+    "requirements": "[\"Level 1500+\",\"Mengalahkan Order (Raid Boss)\"]",
+    "description": "Layanan joki untuk mendapatkan senjata Acidum Rifle."
+  },
+  {
+    "id": "bc15335a-13dc-4f2b-b5af-9460259547f3",
+    "name": "Kabucha",
+    "type": "ITEM",
+    "basePrice": 2000,
+    "requirements": "[\"Level 700+\",\"Mengalahkan Big Mom (Raid Boss)\"]",
+    "description": "Layanan joki untuk mendapatkan senjata Kabucha."
+  },
+  {
+    "id": "f390dbc3-9ca8-49dc-a5be-9db8632b2c9a",
+    "name": "1000 Fragments (Fruit Worker)",
+    "type": "RAID",
+    "basePrice": 2000,
+    "requirements": "[\"Level 700+\"]",
+    "description": "Layanan joki untuk mendapatkan 1000 Fragments."
+  },
+  {
+    "id": "9b260063-ecf8-4c78-bb46-85e489bb7aed",
+    "name": "Host Normal Raid (per raid)",
+    "type": "RAID",
+    "basePrice": 2000,
+    "requirements": "[\"Level 1100+\",\"Memiliki buah iblis yang akan diawakening atau ingin mengumpulkan fragmen\"]",
+    "description": "Layanan joki untuk melakukan hosting dan membantu menyelesaikan satu Normal Raid (tidak termasuk fruit awakening)."
+  },
+  {
+    "id": "3112d35e-1f98-47e4-85d0-aaec4b81479f",
+    "name": "Host Advanced Raid (per raid)",
+    "type": "RAID",
+    "basePrice": 4000,
+    "requirements": "[\"Level 1100+\",\"Memiliki buah iblis yang akan diawakening atau ingin mengumpulkan fragmen\"]",
+    "description": "Layanan joki untuk melakukan hosting dan membantu menyelesaikan satu Advanced Raid (tidak termasuk fruit awakening)."
+  },
+  {
+    "id": "c7bd6983-9d66-44da-b1e4-ed00ac118ccc",
+    "name": "Race V1 ke V2 (semua ras)",
+    "type": "OTHER",
+    "basePrice": 5000,
+    "requirements": "[\"Ras V1\",\"Level 850+\",\"Menyelesaikan Quest Bartilo\"]",
+    "description": "Layanan joki untuk meng-upgrade ras karakter dari V1 ke V2."
+  },
+  {
+    "id": "9186c554-86cb-4768-be49-342091590590",
+    "name": "Race V2 ke V3 (semua ras)",
+    "type": "OTHER",
+    "basePrice": 8000,
+    "requirements": "[\"Ras V2\",\"Level 1000+\",\"Memiliki 2\",\"000\",\"000 Beli\",\"Quest Spesifik Ras\"]",
+    "description": "Layanan joki untuk meng-upgrade ras karakter dari V2 ke V3."
+  },
+  {
+    "id": "e5d904c0-6386-4fbc-a9a8-4fa549ef6c35",
+    "name": "Race V1 ke V3 (semua ras)",
+    "type": "OTHER",
+    "basePrice": 10000,
+    "requirements": "[\"Ras V1\",\"Level 1000+\",\"Memiliki 2\",\"000\",\"000 Beli\",\"Menyelesaikan Quest Bartilo\",\"Quest Spesifik Ras\"]",
+    "description": "Layanan joki untuk meng-upgrade ras karakter dari V1 langsung ke V3."
+  },
+  {
+    "id": "882aa5ac-5ece-491a-8a6f-8d83112b5be2",
+    "name": "Dapatkan Ras Cyborg",
+    "type": "OTHER",
+    "basePrice": 35000,
+    "requirements": "[\"Level 1500+\",\"Memiliki Fist of Darkness\",\"Memiliki Core Brain\"]",
+    "description": "Layanan joki untuk mendapatkan ras Cyborg."
+  },
+  {
+    "id": "60c5bb01-e2f8-4e89-94ec-430bd98835e2",
+    "name": "Dapatkan Ras Ghoul",
+    "type": "OTHER",
+    "basePrice": 18000,
+    "requirements": "[\"Level 1500+\",\"Memiliki Hellfire Torch (dari Cursed Captain)\",\"Memiliki 100 Ectoplasm\"]",
+    "description": "Layanan joki untuk mendapatkan ras Ghoul."
+  },
+  {
+    "id": "a47d7acf-064c-46ef-b048-952015dc5b71",
+    "name": "Kalahkan Dough King",
+    "type": "OTHER",
+    "basePrice": 20000,
+    "requirements": "[\"Level 1500+\",\"Memiliki Sweet Chalice (God's Chalice + 10 Cocoa Powder)\",\"Sudah mengalahkan 500 musuh di Chocolate Land\"]",
+    "description": "Layanan joki untuk mengalahkan boss Dough King."
+  },
+  {
+    "id": "6c91bfd8-49be-4a50-9957-d4c5976d52c5",
+    "name": "Kalahkan Rip Indra",
+    "type": "OTHER",
+    "basePrice": 18000,
+    "requirements": "[\"Level 1500+\",\"Memiliki God's Chalice\"]",
+    "description": "Layanan joki untuk mengalahkan boss Rip Indra."
+  },
+  {
+    "id": "9fdad84b-3b70-4556-939a-e7ddb060f63e",
+    "name": "Pull Lever (Race V4)",
+    "type": "OTHER",
+    "basePrice": 10000,
+    "requirements": "[\"Ras V3\",\"Level 1750+\",\"Sudah mengalahkan Rip Indra dan Dough King\",\"Membawa Buah Iblis atau Pedang yang ingin Awakening ke 600 Mastery\",\"Mencari Blue Gear di Mirage Island\"]",
+    "description": "Layanan joki untuk menarik tuas (pull lever) untuk mengaktifkan Trial Race V4."
+  },
+  {
+    "id": "5e8b3401-4620-4964-b4b7-6ce8da112d26",
+    "name": "Dapatkan 1 Gear (Race V4)",
+    "type": "OTHER",
+    "basePrice": 8000,
+    "requirements": "[\"Ras V3\",\"Level 1750+\",\"Sudah memulai quest Race V4\",\"Melakukan Trial Race V4\"]",
+    "description": "Layanan joki untuk membantu mendapatkan satu gear untuk Race V4."
+  },
+  {
+    "id": "c24d1ec6-a86c-4402-a96a-43b2a1f0eb49",
+    "name": "5x Latihan Race V4 (setelah Full Gear)",
+    "type": "OTHER",
+    "basePrice": 10000,
+    "requirements": "[\"Ras V4 Full Gear\"]",
+    "description": "Layanan joki untuk membantu 5 kali latihan (train) untuk Race V4 setelah mendapatkan semua gear."
+  },
+  {
+    "id": "1223f2eb-f35e-4790-8a81-a1fa19a2c752",
+    "name": "Race V4 Full Gear",
+    "type": "OTHER",
+    "basePrice": 45000,
+    "requirements": "[\"Ras V3\",\"Level 1750+\",\"Sudah mengalahkan Rip Indra dan Dough King\",\"Membawa Buah Iblis atau Pedang yang ingin Awakening ke 600 Mastery\",\"Mencari Blue Gear di Mirage Island\"]",
+    "description": "Layanan joki untuk mendapatkan semua gear dan menyelesaikan quest Race V4."
+  },
+  {
+    "id": "7bd0e3db-7a64-46d8-8428-70a0d6b9cc04",
+    "name": "Race V4 Full Gear + FT",
+    "type": "OTHER",
+    "basePrice": 50000,
+    "requirements": "[\"Ras V3\",\"Level 1750+\",\"Sudah mengalahkan Rip Indra dan Dough King\",\"Membawa Buah Iblis atau Pedang yang ingin Awakening ke 600 Mastery\",\"Mencari Blue Gear di Mirage Island\"]",
+    "description": "Layanan joki untuk mendapatkan semua gear dan menyelesaikan quest Race V4, termasuk Full Trial/Training."
+  },
+  {
+    "id": "ef58a95b-25d1-4cfd-824e-644bdbf646ea",
+    "name": "1x Latihan Race V4",
+    "type": "OTHER",
+    "basePrice": 3000,
+    "requirements": "[\"Ras V4\"]",
+    "description": "Layanan joki untuk membantu 1 kali latihan (train) untuk Race V4."
+  },
+  {
+    "id": "31748ca4-d971-4379-bb65-d7e0e683c805",
+    "name": "Shark Necklace",
+    "type": "ITEM",
+    "basePrice": 10000,
+    "requirements": "[\"Level 1500+\",\"Sea Danger Level 2+\",\"Mengalahkan Sea Beast\"]",
+    "description": "Layanan joki untuk mendapatkan aksesoris Shark Necklace."
+  },
+  {
+    "id": "b75cba00-589e-43b9-9090-30d3359bf577",
+    "name": "Terror Jaw",
+    "type": "ITEM",
+    "basePrice": 10000,
+    "requirements": "[\"Level 1500+\",\"Sea Danger Level 5-6\",\"Mengalahkan TerrorShark\"]",
+    "description": "Layanan joki untuk mendapatkan aksesoris Terror Jaw."
+  },
+  {
+    "id": "d3d84cfd-bd7f-4a15-a660-0c35f2d18c30",
+    "name": "Monster Magnet",
+    "type": "ITEM",
+    "basePrice": 30000,
+    "requirements": "[\"Level 1500+\",\"2 Terror Eyes\",\"8 Electric Wings\",\"20 Gold Doubloons\",\"10 Fool's Gold\"]",
+    "description": "Layanan joki untuk mendapatkan item Monster Magnet."
+  },
+  {
+    "id": "1c5480c4-0e70-482d-83fe-68c996e941af",
+    "name": "Shark Anchor (Tanpa Monster Magnet)",
+    "type": "ITEM",
+    "basePrice": 40000,
+    "requirements": "[\"Level 1500+\",\"Sea Danger Level 5-6\"]",
+    "description": "Layanan joki untuk mendapatkan pedang Shark Anchor. Monster Magnet akan dikumpulkan oleh joki."
+  },
+  {
+    "id": "2884828b-4dbb-4992-9475-22bc99eaa5c8",
+    "name": "Shark Anchor (Dengan Monster Magnet)",
+    "type": "ITEM",
+    "basePrice": 30000,
+    "requirements": "[\"Level 1500+\",\"Sea Danger Level 5-6\",\"Memiliki Monster Magnet\"]",
+    "description": "Layanan joki untuk mendapatkan pedang Shark Anchor. Pelanggan harus menyediakan Monster Magnet."
+  },
+  {
+    "id": "5ca52910-c2f2-48d8-94ab-79f2582929f3",
+    "name": "Leviathan Heart",
+    "type": "ITEM",
+    "basePrice": 55000,
+    "requirements": "[\"Level 1500+\",\"Sea Danger Level 6\",\"Mengalahkan Leviathan\",\"Memiliki Monster Magnet\",\"Memiliki Harpoon\"]",
+    "description": "Layanan joki untuk mendapatkan material Leviathan Heart."
+  },
+  {
+    "id": "735a9a1c-2bfc-418c-9e18-c05fe5abfdd2",
+    "name": "Leviathan Crown",
+    "type": "ITEM",
+    "basePrice": 75000,
+    "requirements": "[\"Level 1500+\",\"Sea Danger Level 6\",\"Mengalahkan Leviathan\",\"Memiliki Monster Magnet\",\"Memiliki Harpoon\"]",
+    "description": "Layanan joki untuk mendapatkan aksesoris Leviathan Crown."
+  },
+  {
+    "id": "06417475-8f2f-4f67-86a4-461f2a81bcbb",
+    "name": "Leviathan Shield",
+    "type": "ITEM",
+    "basePrice": 85000,
+    "requirements": "[\"Level 1500+\",\"Sea Danger Level 6\",\"Mengalahkan Leviathan\",\"Memiliki Monster Magnet\",\"Memiliki Harpoon\"]",
+    "description": "Layanan joki untuk mendapatkan aksesoris Leviathan Shield."
+  },
+  {
+    "id": "8eebd4cb-a57e-47c3-86bc-7209c813c1e7",
+    "name": "Beast Hunter (Title/Aktivitas)",
+    "type": "OTHER",
+    "basePrice": 60000,
+    "requirements": "[\"Level 1500+\",\"Sea Danger Level 6\",\"Mengalahkan Leviathan\",\"Memiliki Monster Magnet\",\"Memiliki Harpoon\"]",
+    "description": "Layanan joki untuk membantu mendapatkan titel Beast Hunter dengan mengalahkan Leviathan."
+  },
+  {
+    "id": "a513e100-bfdc-4f47-84dc-6073414b1dc5",
+    "name": "Sanguine Art (dari awal)",
+    "type": "ITEM",
+    "basePrice": 85000,
+    "requirements": "[\"Level 1500+\",\"5\",\"000\",\"000 Beli\",\"5000 Fragments\",\"1 Leviathan Heart\",\"Sea Danger Level 6\",\"Mengalahkan Leviathan\",\"Memiliki Monster Magnet\",\"Memiliki Harpoon\"]",
+    "description": "Layanan joki untuk mendapatkan fighting style Sanguine Art, termasuk mengumpulkan Leviathan Heart dan material lainnya jika diperlukan."
+  },
+  {
+    "id": "51c24213-33b2-4ad5-9780-9a2297c27c10",
+    "name": "Get Fox Lamp (Kitsune Event)",
+    "type": "ITEM",
+    "basePrice": 40000,
+    "requirements": "[\"Kitsune Island event aktif\"]",
+    "description": "Layanan joki untuk mendapatkan item Fox Lamp dari event Kitsune Island."
+  },
+  {
+    "id": "3cf2f7f0-b969-4f16-a952-90ee708017c0",
+    "name": "Item Lain (Kitsune Event, selain Fox Lamp)",
+    "type": "ITEM",
+    "basePrice": 35000,
+    "requirements": "[\"Kitsune Island event aktif\"]",
+    "description": "Layanan joki untuk mendapatkan item lain dari event Kitsune Island (selain Fox Lamp)."
+  },
+  {
+    "id": "c5c5af68-4188-4f20-a490-02731fa602bb",
+    "name": "Kitsune Haki",
+    "type": "ITEM",
+    "basePrice": 28000,
+    "requirements": "[\"Kitsune Island event aktif\",\"Memiliki Kitsune Fruit\",\"Menyelesaikan puzzle Kitsune Shrine\"]",
+    "description": "Layanan joki untuk mendapatkan Kitsune Haki."
+  },
+  {
+    "id": "1fa4c031-4e3b-4723-8fc7-76b819ca083f",
+    "name": "20 Fool's Gold",
+    "type": "ITEM",
+    "basePrice": 10000,
+    "requirements": "[\"Level 1500+\",\"Berpartisipasi dalam Sea Event\"]",
+    "description": "Layanan joki untuk mengumpulkan 20 Fool's Gold."
+  },
+  {
+    "id": "fd593b07-a4f7-45d3-9b04-cbd14e173f0a",
+    "name": "50 Shark Tooth",
+    "type": "ITEM",
+    "basePrice": 8000,
+    "requirements": "[\"Level 1500+\",\"Mengalahkan Sea Beast atau Shark Hunter NPC\"]",
+    "description": "Layanan joki untuk mengumpulkan 50 Shark Tooth."
+  },
+  {
+    "id": "bc760110-b14e-4cb4-afb0-99e90046c90a",
+    "name": "20 Electric Wing",
+    "type": "ITEM",
+    "basePrice": 8000,
+    "requirements": "[\"Level 1500+\",\"Mengalahkan Electrical Beast di Sea Danger Level 3+\"]",
+    "description": "Layanan joki untuk mengumpulkan 20 Electric Wing."
+  },
+  {
+    "id": "ed4c5fb5-0fae-4f07-936f-9c30ec3a344b",
+    "name": "1 Mutant Tooth",
+    "type": "ITEM",
+    "basePrice": 3000,
+    "requirements": "[\"Level 1500+\",\"Mengalahkan Sea Beast atau Mutant Fish\"]",
+    "description": "Layanan joki untuk mengumpulkan 1 Mutant Tooth."
+  },
+  {
+    "id": "abe185bc-d991-499d-b079-1adf7f952fbf",
+    "name": "1 Terror Eyes",
+    "type": "ITEM",
+    "basePrice": 5000,
+    "requirements": "[\"Level 1500+\",\"Mengalahkan TerrorShark di Sea Danger Level 5-6\"]",
+    "description": "Layanan joki untuk mengumpulkan 1 Terror Eyes."
+  },
+  {
+    "id": "a855b53d-7082-4977-a00c-16ae3e0a801f",
+    "name": "10 Leviathan Scales",
+    "type": "ITEM",
+    "basePrice": 50000,
+    "requirements": "[\"Level 1500+\",\"Sea Danger Level 6\",\"Mengalahkan Leviathan\",\"Memiliki Monster Magnet\",\"Memiliki Harpoon\"]",
+    "description": "Layanan joki untuk mengumpulkan 10 Leviathan Scales."
+  },
+  {
+    "id": "0832f696-eff3-4058-97c6-836d3bb661f5",
+    "name": "1000 Fragments",
+    "type": "RAID",
+    "basePrice": 1000,
+    "requirements": "[\"Level 1100+\"]",
+    "description": "Layanan joki untuk mendapatkan 1000 Fragments dengan fruit sendiri."
+  }
+]

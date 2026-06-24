@@ -1,0 +1,11 @@
+{
+  "ignore": [
+    "auth_info_baileys/*",
+    "*.db",
+    "*.db-journal",
+    "*.db-wal",
+    "*.db-shm",
+    "test_*.js"
+  ],
+  "delay": 1500
+}

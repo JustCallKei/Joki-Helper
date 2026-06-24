@@ -1,0 +1,1000 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Helper Mia - Admin Dashboard</title>
+  <meta name="description" content="Admin Dashboard for Helper Mia Blox Fruit Jockey Service Bot">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body>
+  <div class="app-container">
+    <!-- ========== SIDEBAR ========== -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-brand">
+        <div class="brand-icon">
+          <i data-lucide="hexagon" style="width: 28px; height: 28px;"></i>
+        </div>
+        <h2>Mia Admin</h2>
+      </div>
+
+      <!-- Navigation -->
+      <div class="nav-section">
+        <div class="nav-section-label">Main</div>
+        <nav class="nav-menu">
+          <button class="nav-item active" data-tab="overview">
+            <i data-lucide="layout-dashboard"></i> Overview
+          </button>
+          <button class="nav-item" data-tab="control">
+            <i data-lucide="sliders-horizontal"></i> Bot Control
+          </button>
+          <button class="nav-item" data-tab="apikeys">
+            <i data-lucide="key-round"></i> API Keys
+            <span class="nav-badge" id="nav-key-count">0</span>
+          </button>
+        </nav>
+
+        <div class="nav-section-label">Configuration</div>
+        <nav class="nav-menu">
+          <button class="nav-item" data-tab="config">
+            <i data-lucide="settings"></i> Config & Teks
+          </button>
+          <button class="nav-item" data-tab="whatsapp">
+            <i data-lucide="qr-code"></i> WhatsApp Pairing
+          </button>
+        </nav>
+
+        <div class="nav-section-label">Tools</div>
+        <nav class="nav-menu">
+          <button class="nav-item" data-tab="tickets">
+            <i data-lucide="ticket"></i> Tickets Monitor
+          </button>
+          <button class="nav-item" data-tab="orders">
+            <i data-lucide="package"></i> Order Manager
+          </button>
+          <button class="nav-item" data-tab="pricelist">
+            <i data-lucide="coins"></i> Price Manager
+          </button>
+          <button class="nav-item" data-tab="calculator">
+            <i data-lucide="calculator"></i> Calculator
+          </button>
+          <button class="nav-item" data-tab="broadcast">
+            <i data-lucide="megaphone"></i> Broadcast
+            <span class="nav-badge" id="nav-broadcast-badge" style="display:none;">●</span>
+          </button>
+        </nav>
+      </div>
+    </aside>
+
+    <!-- ========== MAIN CONTENT ========== -->
+    <main class="main-wrapper">
+      <!-- Header Bar -->
+      <header class="main-header flex-between">
+        <h1 id="page-title">Overview</h1>
+        <div class="header-actions">
+          <div class="system-clock">
+            <i data-lucide="clock"></i>
+            <span id="time-display">--:--:--</span>
+          </div>
+          <button class="btn btn-icon btn-secondary"
+            onclick="document.querySelector('.nav-item[data-tab=\'logs\']').click()" title="Live Console">
+            <i data-lucide="terminal"></i>
+          </button>
+        </div>
+      </header>
+
+      <!-- Invisible Log Button for Tab Switching -->
+      <button class="nav-item hidden" data-tab="logs"></button>
+
+      <div class="main-scroll">
+        <!-- ===== TAB: OVERVIEW ===== -->
+        <section id="tab-overview" class="tab-content active">
+
+          <!-- Metrics Grid -->
+          <div class="grid-bento mb-4">
+            <div class="micro-card">
+              <div class="micro-card-header">
+                <span class="micro-card-title">Discord Bot</span>
+                <div class="indicator offline" id="discord-badge-dot"></div>
+              </div>
+              <div class="micro-card-value" id="discord-tag">-</div>
+              <div class="micro-card-sub" id="discord-badge">Disconnected</div>
+            </div>
+
+            <div class="micro-card">
+              <div class="micro-card-header">
+                <span class="micro-card-title">WhatsApp Client</span>
+                <div class="indicator offline" id="wa-badge-dot"></div>
+              </div>
+              <div class="micro-card-value" id="wa-phone-text">-</div>
+              <div class="micro-card-sub" id="wa-badge">Disconnected</div>
+            </div>
+
+            <div class="micro-card">
+              <div class="micro-card-header">
+                <span class="micro-card-title">Active Tickets</span>
+                <i data-lucide="ticket" style="color: var(--color-accent); width: 16px; height: 16px;"></i>
+              </div>
+              <div class="micro-card-value" id="stat-open-tickets">0</div>
+              <div class="micro-card-sub">Tickets currently open</div>
+            </div>
+
+            <div class="micro-card">
+              <div class="micro-card-header">
+                <span class="micro-card-title">Total Revenue</span>
+                <i data-lucide="wallet" style="color: var(--color-success); width: 16px; height: 16px;"></i>
+              </div>
+              <div class="micro-card-value text-gradient" id="stat-total-income">Rp 0</div>
+              <div class="micro-card-sub">Based on completed orders</div>
+            </div>
+          </div>
+
+          <div class="split-pane">
+            <div class="glass-card chart-card">
+              <div class="card-header flex-between" style="margin-bottom:0;">
+                <h2><i data-lucide="trending-up"></i> Sales Dynamics</h2>
+              </div>
+              <div class="chart-area" id="sales-chart-container">
+                <div class="text-muted text-center" style="width:100%">
+                  <i data-lucide="bar-chart-3" style="width:48px;height:48px;opacity:0.2;margin-bottom:12px;"></i>
+                  <p>Insufficient data for visualization</p>
+                </div>
+              </div>
+            </div>
+            <div class="glass-card">
+              <div class="card-header flex-between">
+                <h2><i data-lucide="cpu"></i> AI Engine Status</h2>
+                <span id="gemini-badge" class="badge badge-error">No Key</span>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Active Model</label>
+                <div class="form-control" style="background: rgba(255,255,255,0.02);" id="gemini-model-badge">-</div>
+              </div>
+              <div class="flex-between mt-4">
+                <div>
+                  <div class="text-muted text-sm">Total Keys</div>
+                  <div style="font-weight:600; font-size:1.1rem" id="gemini-key-count">0</div>
+                </div>
+                <div>
+                  <div class="text-muted text-sm text-right">Active Slot</div>
+                  <div style="font-weight:600; font-size:1.1rem; color: var(--color-accent);" id="gemini-active-key">-
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ===== TAB: BOT CONTROL ===== -->
+        <section id="tab-control" class="tab-content">
+          <div class="card-header">
+            <h2><i data-lucide="power"></i> Service Controls</h2>
+          </div>
+          <div class="control-grid">
+            <div class="control-card">
+              <div class="control-icon discord"><i data-lucide="message-square"></i></div>
+              <div class="control-info">
+                <h4>Discord Client</h4>
+                <small id="ctrl-discord-status">Checking...</small>
+              </div>
+              <div style="display:flex;gap:6px;">
+                <button onclick="controlService('discord','restart')" class="btn btn-icon btn-secondary"
+                  title="Restart"><i data-lucide="rotate-cw"></i></button>
+                <button onclick="controlService('discord','stop')" class="btn btn-icon btn-danger" title="Stop"><i
+                    data-lucide="square"></i></button>
+              </div>
+            </div>
+
+            <div class="control-card">
+              <div class="control-icon whatsapp"><i data-lucide="phone"></i></div>
+              <div class="control-info">
+                <h4>WhatsApp Bridge</h4>
+                <small id="ctrl-wa-status">Checking...</small>
+              </div>
+              <div style="display:flex;gap:6px;">
+                <button onclick="controlService('whatsapp','restart')" class="btn btn-icon btn-secondary"
+                  title="Restart"><i data-lucide="rotate-cw"></i></button>
+                <button onclick="controlService('whatsapp','stop')" class="btn btn-icon btn-danger" title="Stop"><i
+                    data-lucide="square"></i></button>
+              </div>
+            </div>
+
+            <!-- Google Workspace Cloud Sync Card -->
+            <div class="control-card" id="google-sync-card">
+              <div class="control-icon google" style="background: #ea4335; box-shadow: 0 0 15px rgba(234,67,53,0.4);"><i data-lucide="cloud"></i></div>
+              <div class="control-info">
+                <h4>Google Workspace Cloud Sync</h4>
+                <div style="display:flex; align-items:center; gap: 6px; margin-top: 4px;">
+                  <span id="google-sync-status-badge" class="badge badge-glow-error">Disconnected</span>
+                </div>
+                <div style="margin-top: 6px; font-size: 0.75rem; color: var(--text-muted); display:flex; flex-direction:column; gap:2px;">
+                  <div>Email: <span id="google-sync-email" style="color:var(--text-secondary); font-family: monospace; font-size:0.7rem; max-width: 140px; overflow: hidden; text-overflow: ellipsis; display: inline-block; white-space: nowrap; vertical-align: bottom;">-</span></div>
+                  <div>Last Sync: <span id="google-last-sync-time" style="color:var(--text-secondary)">-</span></div>
+                  <div>Backup Size: <span id="google-backup-size" style="color:var(--text-secondary)">-</span></div>
+                </div>
+              </div>
+              <div style="display:flex; flex-direction:column; gap:6px;">
+                <button id="btn-cloud-sync" onclick="triggerCloudBackup()" class="btn btn-secondary btn-sm" title="Sync Now" style="padding: 8px 12px; font-size: 0.8rem; display:flex; align-items:center; gap:6px;">
+                  <i data-lucide="refresh-cw"></i> Sync Now
+                </button>
+                <button id="btn-cloud-restore" onclick="confirmCloudRestore()" class="btn btn-danger btn-sm" title="Restore" style="padding: 8px 12px; font-size: 0.8rem; display:flex; align-items:center; gap:6px;">
+                  <i data-lucide="download"></i> Restore
+                </button>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="split-pane">
+            <div style="display:flex; flex-direction:column; gap:24px;">
+              <div>
+                <div class="card-header">
+                  <h2><i data-lucide="toggle-right"></i> Global AI Toggles</h2>
+                </div>
+                <div style="display:flex; flex-direction:column; gap:12px;">
+                  <div class="toggle-switch" id="toggle-global-ai" onclick="toggleSetting('global-ai')">
+                    <div class="toggle-track"></div>
+                    <div class="toggle-info">
+                      <h4>Discord AI Autoreply (Mia)</h4>
+                      <p>Automatically reply to Discord tickets</p>
+                    </div>
+                  </div>
+                  <div class="toggle-switch" id="toggle-wa-autoreply" onclick="toggleSetting('wa-autoreply')">
+                    <div class="toggle-track"></div>
+                    <div class="toggle-info">
+                      <h4>WhatsApp AI Autoreply</h4>
+                      <p>Handle WhatsApp inquiries automatically</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="glass-card">
+                <div class="card-header">
+                  <h2><i data-lucide="message-circle"></i> AI Active Persona & System Prompt</h2>
+                </div>
+                <form id="persona-form">
+                  <div class="form-group">
+                    <label class="form-label">Select Preset</label>
+                    <select id="persona-preset" class="form-control">
+                      <option value="kasar">Gamer (oi)</option>
+                      <option value="softspoken">Polite</option>
+                      <option value="tsundere">Tsundere</option>
+                      <option value="tengil">Playful</option>
+                      <option value="sombong">Arrogant</option>
+                      <option value="custom">Custom</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label">Persona Display Name</label>
+                    <input type="text" id="persona-name" class="form-control" placeholder="e.g. Gamer / Kasar">
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label">System Prompt Instructions</label>
+                    <textarea id="persona-prompt" class="form-control" style="min-height: 120px;"
+                      placeholder="Define the AI instructions here..."></textarea>
+                  </div>
+                  <button type="submit" class="btn btn-primary w-full" id="btn-save-persona">
+                    <i data-lucide="save"></i> Save & Apply Persona
+                  </button>
+                </form>
+              </div>
+            </div>
+
+            <div class="glass-card" style="padding:0; overflow:hidden;">
+              <div style="padding: 24px 24px 0;">
+                <div class="card-header">
+                  <h2 style="color:var(--color-warning);"><i data-lucide="mic-off"></i> Human Handovers</h2>
+                </div>
+                <p class="text-sm text-muted mb-4">Bots are muted for 15 mins after admin intervention.</p>
+              </div>
+
+              <div class="data-table-container" style="border:none; border-radius:0;">
+                <table class="data-table">
+                  <thead>
+                    <tr>
+                      <th>WhatsApp JID</th>
+                      <th>Time Left</th>
+                      <th style="text-align:right">Action</th>
+                    </tr>
+                  </thead>
+                  <tbody id="muted-chats-table-body">
+                    <tr>
+                      <td colspan="3" class="text-center text-muted">No active handovers.</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <div style="padding: 16px 24px; border-top: 1px solid var(--border-glass); display:flex; gap:10px;">
+                <input type="text" id="manual-mute-jid" class="form-control" placeholder="Target JID (e.g. 62812...)"
+                  style="padding: 8px 12px; font-size: 0.85rem;">
+                <button onclick="manualToggleMute()" class="btn btn-secondary btn-sm"
+                  style="color: var(--color-warning);">Mute</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Stopped Chats Section -->
+          <div class="glass-card" style="padding:0; overflow:hidden; margin-top: 24px;">
+            <div style="padding: 24px 24px 0;">
+              <div class="card-header">
+                <h2 style="color:var(--color-error);"><i data-lucide="ban"></i> Stopped Chats</h2>
+              </div>
+              <p class="text-sm text-muted mb-4">User yang telah mengirim kata <strong>"stop"</strong> — bot tidak akan membalas sampai diaktifkan kembali secara manual.</p>
+            </div>
+
+            <div class="data-table-container" style="border:none; border-radius:0;">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>WhatsApp JID</th>
+                    <th>Stopped At</th>
+                    <th>Admin Replied?</th>
+                    <th style="text-align:right">Action</th>
+                  </tr>
+                </thead>
+                <tbody id="stopped-chats-table-body">
+                  <tr>
+                    <td colspan="4" class="text-center text-muted">Tidak ada stopped chats.</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div style="padding: 16px 24px; border-top: 1px solid var(--border-glass); display:flex; gap:10px;">
+              <input type="text" id="manual-stop-jid" class="form-control" placeholder="JID (e.g. 62812...@s.whatsapp.net)"
+                style="padding: 8px 12px; font-size: 0.85rem;">
+              <button onclick="manualStopChat()" class="btn btn-secondary btn-sm" style="color: var(--color-error);">Stop</button>
+              <button onclick="manualUnstopChat()" class="btn btn-secondary btn-sm" style="color: var(--color-success);">Aktifkan</button>
+            </div>
+          </div>
+        </section>
+
+        <!-- ===== TAB: API KEYS ===== -->
+        <section id="tab-apikeys" class="tab-content">
+          <div class="glass-card">
+            <div class="card-header flex-between">
+              <h2><i data-lucide="key-round"></i> Gemini API Rotation Manager</h2>
+              <span class="badge badge-accent" id="key-total-badge">0 Keys</span>
+            </div>
+            <p class="text-muted text-sm mb-4">Automated round-robin failover. If a key exhausts its quota, the next
+              active key takes over immediately.</p>
+
+            <div class="key-list" id="key-list"
+              style="display: flex; flex-direction: column; gap: 14px; margin-bottom: 24px;">
+              <p class="text-muted text-center" style="padding: 20px;">No keys configured.</p>
+            </div>
+
+            <form id="key-add-form" onsubmit="event.preventDefault(); addApiKey();" class="key-add-row"
+              style="display: flex; gap: 12px; margin-top: 16px;">
+              <input type="password" id="input-new-key" class="form-control"
+                placeholder="Paste new Gemini API key here..." required minlength="10" style="flex: 1;">
+              <button type="submit" class="btn btn-primary"><i data-lucide="plus"></i> Add Key</button>
+            </form>
+          </div>
+        </section>
+
+        <!-- ===== TAB: CONFIG & TEKS ===== -->
+        <section id="tab-config" class="tab-content">
+          <div class="glass-card">
+            <div class="card-header">
+              <h2><i data-lucide="settings"></i> System Configuration</h2>
+            </div>
+            <form id="config-form">
+              <!-- Discord -->
+              <div class="form-section">
+                <div class="form-section-title"><i data-lucide="hash"></i> Discord Integration</div>
+                <div class="form-row">
+                  <div class="form-group">
+                    <label class="form-label">Bot Token</label>
+                    <input type="password" id="input-discord-token" class="form-control"
+                      placeholder="Update token (leave blank to keep current)">
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label">Guild ID</label>
+                    <input type="text" id="input-discord-guild" class="form-control">
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="form-group">
+                    <label class="form-label">Ticket Category ID</label>
+                    <input type="text" id="input-ticket-category" class="form-control">
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label">Admin Role ID</label>
+                    <input type="text" id="input-admin-role" class="form-control">
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="form-group">
+                    <label class="form-label">Log Channel ID</label>
+                    <input type="text" id="input-staff-channel" class="form-control">
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label">Closed Ticket Viewer Role</label>
+                    <input type="text" id="input-closed-ticket-role" class="form-control">
+                  </div>
+                </div>
+                <div class="form-group" style="width: 50%; padding-right:8px;">
+                  <label class="form-label">Joki Status Channel ID</label>
+                  <input type="text" id="input-joki-status-channel" class="form-control">
+                </div>
+              </div>
+
+              <!-- Payment -->
+              <div class="form-section">
+                <div class="form-section-title"><i data-lucide="wallet"></i> Payment (QRIS)</div>
+                <div class="form-group">
+                  <label class="form-label">Merchant QR Code</label>
+                  <div style="display:flex;gap:10px;align-items:center;">
+                    <input type="file" id="input-qris-file" accept="image/*" class="form-control" style="flex:1;">
+                    <button type="button" onclick="uploadQris()" class="btn btn-secondary"><i data-lucide="upload"></i>
+                      Upload</button>
+                  </div>
+                  <small id="qris-status" style="display:block;margin-top:8px;"></small>
+                </div>
+              </div>
+
+              <!-- AI -->
+              <div class="form-section">
+                <div class="form-section-title"><i data-lucide="cpu"></i> AI Engine Parameters</div>
+                <div class="form-row">
+                  <div class="form-group">
+                    <label class="form-label">Base Model</label>
+                    <select id="input-gemini-model" class="form-control">
+                      <option value="gemini-2.5-flash">Gemini 2.5 Flash (Recommended)</option>
+                      <option value="gemini-2.0-flash">Gemini 2.0 Flash (Ultra Fast)</option>
+                      <option value="gemini-3.5-flash">Gemini 3.5 Flash (High Performance)</option>
+                      <option value="gemini-2.5-pro">Gemini 2.5 Pro (High Intelligence)</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label">WA Fallback Message</label>
+                    <input type="text" id="input-autoreply-text" class="form-control">
+                  </div>
+                </div>
+              </div>
+
+              <!-- Personality (Moved to Bot Control Tab) -->
+              <!-- Texts -->
+              <div class="form-section">
+                <div class="form-section-title"><i data-lucide="message-square-text"></i> Message Templates</div>
+                <div class="form-row">
+                  <div class="form-group">
+                    <label class="form-label">Welcome Embed Title</label>
+                    <input type="text" id="input-welcome-title" class="form-control">
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label">Connect Admin Message</label>
+                    <input type="text" id="input-connect-admin-text" class="form-control">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Welcome Embed Description</label>
+                  <textarea id="input-welcome-desc" class="form-control"></textarea>
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Ticket Greeting</label>
+                  <textarea id="input-greeting-text" class="form-control"></textarea>
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Ticket Close Message</label>
+                  <textarea id="input-close-text" class="form-control"></textarea>
+                </div>
+              </div>
+
+              <div style="display:flex; justify-content:flex-end;">
+                <button type="submit" class="btn btn-success"><i data-lucide="save"></i> Commit Changes</button>
+              </div>
+            </form>
+          </div>
+        </section>
+
+        <!-- ===== TAB: WHATSAPP PAIRING ===== -->
+        <section id="tab-whatsapp" class="tab-content">
+          <div class="glass-card" style="max-width: 500px; margin: 40px auto; text-align: center;">
+            <div class="card-header" style="justify-content:center; margin-bottom:8px;">
+              <h2><i data-lucide="smartphone"></i> Linked Devices Pairing</h2>
+            </div>
+            <p class="text-muted text-sm mb-4">Scan using WhatsApp to securely bind Helper Mia.</p>
+
+            <div class="qr-frame" id="qr-frame-container">
+              <div id="qr-loading" class="qr-placeholder">
+                <i data-lucide="loader" class="spin"></i>
+                <p>Establishing Session...</p>
+              </div>
+              <div id="qr-disconnected" class="qr-placeholder hidden">
+                <i data-lucide="wifi-off" style="color:var(--color-error)"></i>
+                <p>Bridge Offline</p>
+              </div>
+              <div id="qr-connected" class="qr-placeholder hidden">
+                <i data-lucide="shield-check" style="color:var(--color-success)"></i>
+                <p style="color:var(--text-primary); font-weight:600;">Securely Connected</p>
+                <small id="wa-connected-info" class="text-muted"></small>
+              </div>
+              <img id="qr-image" class="hidden" alt="QR Code">
+            </div>
+          </div>
+        </section>
+
+        <!-- ===== TAB: TICKETS MONITOR ===== -->
+        <section id="tab-tickets" class="tab-content">
+          <div class="glass-card" style="padding:0; overflow:hidden;">
+            <div class="flex-between" style="padding: 24px;">
+              <div class="card-header" style="margin:0;">
+                <h2><i data-lucide="ticket"></i> Live Support Tickets</h2>
+              </div>
+              <button onclick="loadTickets()" class="btn btn-secondary btn-sm"><i data-lucide="refresh-cw"></i>
+                Sync</button>
+            </div>
+
+            <div class="data-table-container" style="border:none; border-radius:0;">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>User Identity</th>
+                    <th>Status</th>
+                    <th>AI Engine</th>
+                    <th>Created At</th>
+                    <th>Interactions</th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody id="tickets-table-body">
+                  <tr>
+                    <td colspan="6" class="text-center text-muted">Retrieving datastream...</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- ===== TAB: ORDER MANAGER ===== -->
+        <section id="tab-orders" class="tab-content">
+          <div class="glass-card" style="padding:0; overflow:hidden;">
+            <div class="flex-between" style="padding: 24px;">
+              <div class="card-header" style="margin:0;">
+                <h2><i data-lucide="package"></i> Order Registry</h2>
+              </div>
+              <button onclick="loadOrders()" class="btn btn-secondary btn-sm"><i data-lucide="refresh-cw"></i>
+                Sync</button>
+            </div>
+
+            <div class="data-table-container" style="border:none; border-radius:0;">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Registry ID</th>
+                    <th>Service Details</th>
+                    <th>Participants</th>
+                    <th>Value</th>
+                    <th>State</th>
+                    <th style="text-align:right;">Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="orders-table-body">
+                  <tr>
+                    <td colspan="6" class="text-center text-muted">Retrieving datastream...</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- ===== TAB: PRICE MANAGER ===== -->
+        <section id="tab-pricelist" class="tab-content">
+          <!-- AI Pricelist Raw Text Importer Card -->
+          <div class="glass-card mb-4" id="ai-importer-card">
+            <div class="card-header flex-between">
+              <h2><i data-lucide="sparkles" style="color: var(--color-accent);"></i> AI Pricelist Raw Text Importer</h2>
+              <span class="badge badge-accent">Gemini AI Engine</span>
+            </div>
+
+            <div class="split-pane">
+              <!-- Left Pane: Input -->
+              <div class="pane-input">
+                <div class="form-group" style="margin-bottom: 12px;">
+                  <label class="form-label">Raw Pricelist Text</label>
+                  <textarea id="ai-import-input" class="form-control"
+                    style="height: 180px; font-family: monospace; font-size: 0.82rem;"
+                    placeholder="Paste raw text/chat pricelist here (e.g., 'leveling up to 2000 cuma 15k, raid dough 5k')."></textarea>
+                </div>
+                <button type="button" id="btn-extract-ai" onclick="extractPricelistWithAI()"
+                  class="btn btn-primary w-full">
+                  <i data-lucide="zap"></i> Extract with Gemini AI
+                </button>
+              </div>
+
+              <!-- Right Pane: Live Preview -->
+              <div class="pane-preview"
+                style="position: relative; display: flex; flex-direction: column; min-height: 236px;">
+                <label class="form-label">Live Preview Grid</label>
+
+                <!-- Shimmer Loading Overlay -->
+                <div id="ai-preview-loading" class="shimmer-overlay hidden">
+                  <div class="shimmer-content">
+                    <i data-lucide="loader" class="spin shimmer-loader"></i>
+                    <p class="shimmer-text">Extracting structure using Gemini AI...</p>
+                  </div>
+                </div>
+
+                <!-- Preview Table Container -->
+                <div class="data-table-container"
+                  style="flex-grow: 1; max-height: 180px; overflow-y: auto; background: rgba(0,0,0,0.2);">
+                  <table class="data-table" id="ai-preview-table" style="font-size: 0.8rem;">
+                    <thead>
+                      <tr>
+                        <th>Service Name</th>
+                        <th>Category</th>
+                        <th>Parsed Price</th>
+                        <th>Min. Level</th>
+                      </tr>
+                    </thead>
+                    <tbody id="ai-preview-body">
+                      <!-- Skeletal/Placeholder Rows Initially -->
+                      <tr class="skeletal-row">
+                        <td><span class="skeleton-text"></span></td>
+                        <td><span class="skeleton-badge"></span></td>
+                        <td><span class="skeleton-text short"></span></td>
+                        <td><span class="skeleton-text short"></span></td>
+                      </tr>
+                      <tr class="skeletal-row">
+                        <td><span class="skeleton-text"></span></td>
+                        <td><span class="skeleton-badge"></span></td>
+                        <td><span class="skeleton-text short"></span></td>
+                        <td><span class="skeleton-text short"></span></td>
+                      </tr>
+                      <tr class="skeletal-row">
+                        <td><span class="skeleton-text"></span></td>
+                        <td><span class="skeleton-badge"></span></td>
+                        <td><span class="skeleton-text short"></span></td>
+                        <td><span class="skeleton-text short"></span></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+
+            <!-- Bottom Action Row -->
+            <div class="flex-between mt-4" style="border-top: 1px solid var(--border-glass); padding-top: 16px;">
+              <span class="text-muted text-sm" id="ai-import-count">0 items ready to commit.</span>
+              <button type="button" id="btn-commit-db" onclick="commitImportedPricelist()" class="btn btn-success"
+                disabled>
+                <i data-lucide="save"></i> Commit & Save to Database
+              </button>
+            </div>
+          </div>
+
+          <!-- Master Pricelist Card -->
+          <div class="glass-card" style="padding:0; overflow:hidden;">
+            <div class="flex-between" style="padding: 24px;">
+              <div class="card-header" style="margin:0; display:flex; align-items:center; gap:10px;">
+                <h2><i data-lucide="coins"></i> Master Pricelist</h2>
+                <span class="badge badge-accent" id="stat-pricelist-count">0 Items</span>
+              </div>
+              <div style="display:flex; gap:10px;">
+                <button onclick="clearAllPriceItems()" class="btn btn-danger btn-sm"><i data-lucide="trash-2"></i>
+                  Wipe</button>
+                <button onclick="openPriceForm()" class="btn btn-primary btn-sm"><i data-lucide="plus"></i> Create
+                  Entry</button>
+              </div>
+            </div>
+
+            <div class="data-table-container" style="border:none; border-radius:0;">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Nomenclature</th>
+                    <th>Classification</th>
+                    <th>Base Price</th>
+                    <th>Dependencies</th>
+                    <th style="text-align:right;">Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="pricelist-table-body">
+                  <tr>
+                    <td colspan="5" class="text-center text-muted">Retrieving datastream...</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- Price Form Modal -->
+          <div id="price-modal" class="modal-overlay">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h3 id="modal-title">Define Service Entry</h3>
+                <button onclick="closePriceForm()" class="btn-close">&times;</button>
+              </div>
+              <form id="price-form">
+                <input type="hidden" id="price-id">
+                <div class="form-group">
+                  <label class="form-label">Service Nomenclature</label>
+                  <input type="text" id="price-name" class="form-control" required>
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Classification</label>
+                  <select id="price-type" class="form-control" required>
+                    <option value="LEVELING">LEVELING</option>
+                    <option value="ITEM">ITEM</option>
+                    <option value="RAID">RAID</option>
+                    <option value="AWAKENING">AWAKENING</option>
+                    <option value="OTHER">OTHER</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Base Value (IDR)</label>
+                  <input type="number" id="price-val" class="form-control" required>
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Dependencies (CSV)</label>
+                  <input type="text" id="price-req" class="form-control"
+                    placeholder="e.g. Level 1500+, 20 Dragon Scales">
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Brief Description</label>
+                  <textarea id="price-desc" class="form-control"></textarea>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" onclick="closePriceForm()" class="btn btn-secondary">Cancel</button>
+                  <button type="submit" class="btn btn-success">Commit</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </section>
+
+        <!-- ===== TAB: CALCULATOR ===== -->
+        <section id="tab-calculator" class="tab-content">
+          <div class="split-pane">
+            <div class="glass-card">
+              <div class="card-header">
+                <h2><i data-lucide="calculator"></i> Pricing Simulator</h2>
+              </div>
+              <form id="calc-form">
+                <div class="form-row">
+                  <div class="form-group">
+                    <label class="form-label">Current Level</label>
+                    <input type="number" id="calc-current" class="form-control" required min="1" max="2550">
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label">Target Level (Opt)</label>
+                    <input type="number" id="calc-target" class="form-control" min="1" max="2550">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Select Services</label>
+                  <div id="calc-items-checkboxes" class="checkbox-grid">
+                    <p class="text-muted text-sm" style="padding:10px;">Loading catalog...</p>
+                  </div>
+                </div>
+                <button type="submit" class="btn btn-primary w-full" style="margin-top:10px;"><i data-lucide="zap"></i>
+                  Simulate Cost</button>
+              </form>
+            </div>
+
+            <div class="glass-card">
+              <div class="card-header">
+                <h2><i data-lucide="file-text"></i> Invoice Preview</h2>
+              </div>
+
+              <div id="calc-result-placeholder"
+                style="height: 250px; display:flex; flex-direction:column; align-items:center; justify-content:center; color:var(--text-muted); opacity:0.6;">
+                <i data-lucide="box" style="width:48px;height:48px;margin-bottom:16px;"></i>
+                <p>Run simulation to generate invoice</p>
+              </div>
+
+              <div id="calc-result-data" class="hidden">
+                <div
+                  style="background: rgba(14, 165, 233, 0.05); border: 1px solid rgba(14, 165, 233, 0.2); border-radius: 16px; padding: 24px; margin-bottom: 20px;"
+                  class="flex-between">
+                  <span
+                    style="font-weight:600; text-transform:uppercase; letter-spacing:1px; color:var(--text-secondary); font-size:0.85rem;">Total
+                    Invoice</span>
+                  <span id="res-total-price"
+                    style="font-size:2rem; font-weight:700; color:var(--text-primary); letter-spacing:-1px;">Rp 0</span>
+                </div>
+
+                <div style="padding:0 8px; display:flex; flex-direction:column; gap:12px; font-size:0.9rem;">
+                  <div class="flex-between">
+                    <span class="text-secondary">Level Trajectory</span>
+                    <strong id="res-levels" style="color:var(--text-primary);">0 → 0</strong>
+                  </div>
+                  <div class="flex-between">
+                    <span class="text-secondary">Leveling Cost</span>
+                    <strong id="res-leveling-cost" style="color:var(--text-primary);">Rp 0</strong>
+                  </div>
+                  <div class="flex-between">
+                    <span class="text-secondary">Services Cost</span>
+                    <strong id="res-items-cost" style="color:var(--text-primary);">Rp 0</strong>
+                  </div>
+                </div>
+
+                <div id="res-combo-box" class="alert-combo hidden">
+                  <i data-lucide="alert-triangle"></i>
+                  <div class="alert-combo-info">
+                    <h4>Dependency Triggered: Auto-Combo</h4>
+                    <p>Current level does not meet service requirements. Forced leveling to <strong
+                        id="res-combo-target">0</strong> added. Extra cost: <strong id="res-combo-cost"
+                        style="color:var(--text-primary);">Rp 0</strong>.</p>
+                  </div>
+                </div>
+
+                <div id="res-items-list"
+                  style="margin-top:20px; border-top:1px solid var(--border-glass); padding-top:16px; display:flex; flex-direction:column; gap:8px;">
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ===== TAB: BROADCAST ===== -->
+        <section id="tab-broadcast" class="tab-content">
+
+          <!-- Teks Broadcast -->
+          <div class="glass-card mb-4">
+            <div class="card-header flex-between">
+              <h2><i data-lucide="megaphone"></i> Pesan Broadcast</h2>
+              <div style="display:flex; gap:10px; align-items:center;">
+                <select id="broadcast-preset-select" class="form-control" style="width:200px; padding:8px;" onchange="loadPresetIntoForm()">
+                  <option value="">— Pilih Preset —</option>
+                </select>
+                <button onclick="saveBroadcastPreset()" class="btn btn-secondary btn-sm">
+                  <i data-lucide="save"></i> Simpan Preset
+                </button>
+                <input type="text" id="broadcast-preset-name" class="form-control" placeholder="Nama preset..." style="width:160px; padding:8px;">
+              </div>
+            </div>
+
+            <!-- Dynamic Message Textboxes -->
+            <div id="broadcast-messages-container" style="display:flex; flex-direction:column; gap:12px; margin-bottom:16px;">
+              <div class="broadcast-msg-row" data-index="0" style="display:flex; gap:10px; align-items:flex-start;">
+                <div style="flex:1;">
+                  <label class="form-label" style="font-size:0.8rem;">Pesan 1</label>
+                  <textarea class="form-control broadcast-msg-input" rows="3" placeholder="Ketik pesan broadcast #1..."></textarea>
+                </div>
+                <button onclick="removeMsgBox(this)" class="btn btn-icon btn-danger" style="margin-top:28px;" title="Hapus">
+                  <i data-lucide="trash-2"></i>
+                </button>
+              </div>
+            </div>
+
+            <button onclick="addMsgBox()" class="btn btn-secondary btn-sm" style="margin-bottom:8px;">
+              <i data-lucide="plus"></i> Tambah Pesan
+            </button>
+          </div>
+
+          <div class="split-pane">
+            <!-- Pilih Grup Target -->
+            <div class="glass-card">
+              <div class="card-header flex-between">
+                <h2><i data-lucide="users"></i> Target Grup</h2>
+                <div style="display:flex;gap:8px;">
+                  <button onclick="toggleSelectAllGroups()" class="btn btn-secondary btn-sm" id="btn-select-all-groups">Select All</button>
+                  <button onclick="loadGroupsForBroadcast()" class="btn btn-secondary btn-sm">
+                    <i data-lucide="refresh-cw"></i> Refresh
+                  </button>
+                </div>
+              </div>
+              <div id="broadcast-groups-list" style="max-height:280px; overflow-y:auto; display:flex; flex-direction:column; gap:8px;">
+                <p class="text-muted text-sm text-center" style="padding:20px;">Klik Refresh untuk memuat daftar grup.</p>
+              </div>
+            </div>
+
+            <!-- Interval & Start -->
+            <div class="glass-card">
+              <div class="card-header">
+                <h2><i data-lucide="timer"></i> Interval Kirim</h2>
+              </div>
+              <div style="display:flex; flex-wrap:wrap; gap:8px; margin-bottom:16px;">
+                <button class="btn btn-secondary btn-sm interval-btn" onclick="setInterval_('3600000')" data-val="3600000">1 Jam</button>
+                <button class="btn btn-secondary btn-sm interval-btn" onclick="setInterval_('7200000')" data-val="7200000">2 Jam</button>
+                <button class="btn btn-secondary btn-sm interval-btn" onclick="setInterval_('14400000')" data-val="14400000">4 Jam</button>
+                <button class="btn btn-secondary btn-sm interval-btn" onclick="setInterval_('21600000')" data-val="21600000">6 Jam</button>
+                <button class="btn btn-secondary btn-sm interval-btn" onclick="setInterval_('43200000')" data-val="43200000">12 Jam</button>
+                <button class="btn btn-secondary btn-sm interval-btn" onclick="setInterval_('86400000')" data-val="86400000">24 Jam</button>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Custom Interval (menit)</label>
+                <div style="display:flex;gap:8px;">
+                  <input type="number" id="broadcast-custom-interval" class="form-control" placeholder="e.g. 90" min="1" style="flex:1;">
+                  <button class="btn btn-secondary btn-sm" onclick="applyCustomInterval()">Set</button>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Interval Terpilih</label>
+                <div id="selected-interval-display" class="form-control" style="background:rgba(255,255,255,0.03); color:var(--color-accent); font-weight:600;">Belum dipilih</div>
+                <input type="hidden" id="broadcast-interval-ms" value="">
+              </div>
+              <button onclick="startBroadcastJob()" class="btn btn-primary w-full" style="margin-top:8px;">
+                <i data-lucide="play"></i> Mulai Broadcast
+              </button>
+            </div>
+          </div>
+
+          <!-- Active Jobs Table -->
+          <div class="glass-card" style="padding:0; overflow:hidden; margin-top:24px;">
+            <div class="flex-between" style="padding:24px;">
+              <div class="card-header" style="margin:0;">
+                <h2><i data-lucide="activity"></i> Active Broadcast Jobs</h2>
+              </div>
+              <button onclick="loadBroadcastJobs()" class="btn btn-secondary btn-sm">
+                <i data-lucide="refresh-cw"></i> Refresh
+              </button>
+            </div>
+            <div class="data-table-container" style="border:none; border-radius:0;">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Preview Pesan</th>
+                    <th>Target Grup</th>
+                    <th>Interval</th>
+                    <th>Last Sent</th>
+                    <th>Status</th>
+                    <th style="text-align:right;">Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="broadcast-jobs-table-body">
+                  <tr>
+                    <td colspan="6" class="text-center text-muted">Tidak ada job broadcast.</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- ===== TAB: LIVE CONSOLE (Integrated via JS trigger) ===== -->
+        <section id="tab-logs" class="tab-content">
+          <div class="glass-card" style="padding:0; overflow:hidden;">
+            <div class="flex-between" style="padding: 24px;">
+              <div class="card-header" style="margin:0;">
+                <h2><i data-lucide="terminal"></i> Server Console</h2>
+              </div>
+              <button onclick="clearLogs()" class="btn btn-secondary btn-sm"><i data-lucide="trash-2"></i> Purge
+                Buffer</button>
+            </div>
+
+            <div style="padding: 0 24px 24px;">
+              <div id="log-terminal" class="recessed-panel">
+                <div class="log-line info"><span class="timestamp">[System]</span> Terminal link established. Awaiting
+                  datastream...</div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <!-- Global Confirm Modal -->
+  <div id="confirm-modal" class="modal-overlay">
+    <div class="modal-content" style="max-width:400px; text-align:center;">
+      <i id="confirm-icon" data-lucide="help-circle"
+        style="width:56px; height:56px; color:var(--color-warning); margin:0 auto 20px;"></i>
+      <h3 id="confirm-title" style="font-size:1.25rem; font-weight:600; margin-bottom:12px;">Confirm Execution</h3>
+      <p id="confirm-message" class="text-secondary mb-4" style="line-height:1.5; font-size:0.95rem;"></p>
+      <div style="display:flex; gap:12px; margin-top:24px;">
+        <button id="btn-confirm-cancel" class="btn btn-secondary w-full" style="padding:12px;">Abort</button>
+        <button id="btn-confirm-ok" class="btn btn-primary w-full" style="padding:12px;">Proceed</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="app.js"></script>
+  <script>lucide.createIcons();</script>
+</body>
+
+</html>

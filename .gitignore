@@ -1,0 +1,33 @@
+# Dependency directories
+node_modules/
+
+# Local databases (SQLite / Prisma)
+*.db
+*.db-journal
+dev.db
+
+# Environment variables & secrets
+.env
+.env.*
+!.env.example
+secrets/
+auth_info_baileys/
+
+# Keep important config JSON files
+!package.json
+!package-lock.json
+!nodemon.json
+
+# Tool / Agent configurations and logs
+.agents/
+.claude/
+free-claude-code/
+transcripts/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# OS files
+.DS_Store
+Thumbs.db

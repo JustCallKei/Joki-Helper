@@ -1,0 +1,119 @@
+datasource db {
+  provider = "sqlite"
+  url      = "file:../dev.db"
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Config {
+  key   String @id
+  value String
+}
+
+model Ticket {
+  id            String    @id @default(uuid())
+  discordChanId String    @unique
+  creatorId     String
+  creatorName   String
+  status        String    // "OPEN", "WAITING_ADMIN", "RESPONDED", "CLOSED"
+  aiDisabled    Boolean   @default(false)
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+  waChatId      String?   // Linked WhatsApp chat ID for forwarding
+  messages      Message[]
+}
+
+model Message {
+  id         String   @id @default(uuid())
+  ticketId   String
+  ticket     Ticket   @relation(fields: [ticketId], references: [id], onDelete: Cascade)
+  senderId   String
+  senderName String
+  content    String
+  source     String   // "DISCORD", "WHATSAPP", "AI", "SYSTEM"
+  createdAt  DateTime @default(now())
+}
+
+model PriceItem {
+  id           String   @id @default(uuid())
+  name         String   @unique
+  type         String   // "LEVELING", "ITEM", "RAID", "AWAKENING", "OTHER"
+  basePrice    Float
+  requirements String   // JSON string of requirements list, e.g. ["Level 1500+"]
+  description  String?
+}
+
+model UserPreference {
+  userId          String   @id // Discord User ID
+  allowHarshSlang Boolean  @default(true)
+}
+
+model UserMemory {
+  id        String   @id @default(uuid())
+  userId    String   // Discord User ID or WhatsApp JID
+  content   String   // Fact to remember (e.g. past jockey, Roblox username)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([userId])
+}
+
+model JokiOrder {
+  id            String   @id @default(uuid())
+  ticketId      String?  // Link ke ticket (opsional)
+  channelId     String   // Discord channel ID tiket asal
+  statusMsgId   String?  // Message ID embed di channel status (untuk update)
+  
+  jokiName      String   // Nama joki (misal "Race V4 Full Gear")
+  detail        String   // Detail order (Gear 0 → Gear 5, Level 500 → 1500)
+  price         Float    // Total harga dalam Rupiah
+  
+  buyerId       String   // Discord user ID pembeli
+  buyerName     String   // Username pembeli
+  workerId      String?  // Discord user ID penjoki/worker
+  workerName    String?  // Username penjoki
+  
+  status        String   @default("PENDING")  // PENDING, ACCEPTED, DONE, CANCELLED
+  paymentStatus String   @default("UNPAID")   // UNPAID, PAID
+  
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+}
+
+model ChatSession {
+  sessionId String   @id // ticket.id (Discord) or WhatsApp JID (PM only)
+  summary   String   @default("") // Rolling summary — compressed context of older messages
+  buffer    String   @default("[]") // JSON string of recent messages: [{role, content, createdAt}]
+  updatedAt DateTime @updatedAt
+}
+
+// Tracks user WA yang telah mengirim kata "stop" — bot berhenti merespons mereka
+model StoppedChat {
+  jid          String   @id  // WhatsApp JID pengirim
+  stoppedAt    DateTime @default(now())
+  adminReplied Boolean  @default(false) // true jika admin sudah membalas sebelum 1 jam
+}
+
+// Preset teks untuk broadcast otomatis
+model BroadcastPreset {
+  id        String   @id @default(uuid())
+  name      String   @unique
+  messages  String   // JSON array of message strings
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+// Job broadcast yang sedang berjalan atau sudah dihentikan
+model BroadcastJob {
+  id           String    @id @default(uuid())
+  presetId     String?   // opsional referensi preset
+  messages     String    // JSON array of messages yang akan dikirim
+  targetGroups String    // JSON array of group JIDs
+  intervalMs   Int       // interval dalam milidetik
+  status       String    @default("RUNNING") // "RUNNING", "STOPPED"
+  lastSentAt   DateTime?
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime  @updatedAt
+}

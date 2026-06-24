@@ -1,0 +1,41 @@
+{
+  "name": "helper-joko",
+  "version": "1.0.0",
+  "description": "Discord Ticket Bot, WhatsApp Helper, and Web Dashboard for Blox Fruits Joki",
+  "main": "src/index.js",
+  "scripts": {
+    "dev": "nodemon src/index.js",
+    "start": "node src/index.js",
+    "restart": "npx -y kill-port 3000 && nodemon src/index.js",
+    "kill": "npx -y kill-port 3000",
+    "db:init": "npx prisma db push && node src/prisma/seed.js"
+  },
+  "keywords": [
+    "discord",
+    "whatsapp",
+    "baileys",
+    "gemini",
+    "blox-fruits",
+    "joki"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@google/generative-ai": "^0.24.1",
+    "@prisma/client": "^5.12.1",
+    "@whiskeysockets/baileys": "^6.7.2",
+    "discord.js": "^14.14.1",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "googleapis": "^173.0.0",
+    "multer": "^2.2.0",
+    "node-cron": "^4.5.0",
+    "pino": "^8.20.0",
+    "qrcode": "^1.5.3",
+    "socket.io": "^4.7.5"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.0",
+    "prisma": "^5.12.1"
+  }
+}

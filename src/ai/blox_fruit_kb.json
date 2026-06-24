@@ -1,0 +1,211 @@
+{
+  "general": {
+    "game_name": "Blox Fruits",
+    "roblox_universe": "Blox Fruits",
+    "max_level": 2550,
+    "seas": [
+      {
+        "name": "First Sea (Old World)",
+        "level_range": "1 - 700",
+        "requirements": "Default sea ketika baru mulai main."
+      },
+      {
+        "name": "Second Sea",
+        "level_range": "700 - 1500",
+        "requirements": "Harus Level 700+ dan menyelesaikan quest Military Detective di Prison untuk mengalahkan Ice Admiral."
+      },
+      {
+        "name": "Third Sea",
+        "level_range": "1500 - 2550",
+        "requirements": "Harus Level 1500+ dan menyelesaikan quest Don Swan di Colosseum (Second Sea), lalu bicara dengan Mr. Captain untuk berlayar."
+      }
+    ]
+  },
+  "joki_items": [
+    {
+      "name": "Godhuman",
+      "level_required": 1500,
+      "beli_required": 5000000,
+      "fragments_required": 5000,
+      "mastery_required": "400 Mastery pada Superhuman, Death Step, Sharkman Karate, Dragon Talon, Electric Claw",
+      "materials": [
+        {"name": "Dragon Scales", "amount": 20, "drop_from": "Dragon Crew Warrior / Archer di Hydra Island"},
+        {"name": "Mystic Droplets", "amount": 20, "drop_from": "Water Fighter / Sea Soldier di Forgotten Island"},
+        {"name": "Cocoa Powder", "amount": 10, "drop_from": "NPC Chocolate Land di Third Sea"},
+        {"name": "Demonic Souls", "amount": 10, "drop_from": "Reanimated Zombie di Haunted Castle"}
+      ],
+      "obtain_npc": "Ancient Monk di dalam pohon raksasa Floating Turtle (Third Sea)"
+    },
+    {
+      "name": "Cursed Dual Katana (CDK)",
+      "level_required": 2200,
+      "swords_required": [
+        {"name": "Yama", "mastery_needed": 350},
+        {"name": "Tushita", "mastery_needed": 350}
+      ],
+      "quests": "Selesaikan 3 Cursed Dual Katana Scroll Quest dari Alchemist (Tushita scroll) dan Dock (Yama scroll) di Haunted Castle (Third Sea)."
+    },
+    {
+      "name": "Soul Guitar",
+      "level_required": 2300,
+      "materials": [
+        {"name": "Bones", "amount": 500, "drop_from": "Haunted Castle enemies"},
+        {"name": "Ectoplasm", "amount": 250, "drop_from": "Cursed Ship enemies"},
+        {"name": "Dark Fragment", "amount": 1, "drop_from": "Kalahkan Blackbeard Raid Boss"},
+        {"name": "Fragments", "amount": 5000}
+      ],
+      "quest_trigger": "Bicara dengan Weird Machine di Haunted Castle saat malam Full Moon (Bulan Purnama), lalu selesaikan 5 puzzle lampu & kuburan."
+    },
+    {
+      "name": "Sanguine Art",
+      "level_required": 1500,
+      "beli_required": 5000000,
+      "fragments_required": 5000,
+      "materials": [
+        {"name": "Leviathan Heart", "amount": 1, "drop_from": "Kalahkan Leviathan boss di Cold Sanctuary (butuh Monster Magnet dan Harpoon untuk menariknya)"}
+      ],
+      "obtain_npc": "Shafi di sel bawah tanah Tiki Outpost (Third Sea)"
+    },
+    {
+      "name": "Shark Anchor",
+      "level_required": 1500,
+      "materials": [
+        {"name": "Monster Magnet", "amount": 1, "crafted_at": "Shark Hunter NPC di Tiki Outpost (butuh 2 Terror Eyes, 8 Electric Wings, 20 Gold Doubloons, 10 Fool's Gold)"}
+      ],
+      "obtain_method": "Bawa Monster Magnet berlayar di Danger Level 5-6, kalahkan TerrorShark khusus (jangkar di ekornya) untuk mendapat drop Shark Anchor (100% drop jika Magnet dikonsumsi)."
+    },
+    {
+      "name": "True Triple Katana (TTK)",
+      "level_required": 700,
+      "beli_required": 2000000,
+      "swords_required": [
+        {"name": "Wando", "mastery_needed": 300},
+        {"name": "Shisui", "mastery_needed": 300},
+        {"name": "Saddi", "mastery_needed": 300}
+      ],
+      "obtain_npc": "Mysterious Man di Green Zone (Second Sea)"
+    },
+    {
+      "name": "Superhuman",
+      "level_required": 700,
+      "beli_required": 3000000,
+      "mastery_required": "300 Mastery pada Dark Step, Electric, Water Kung Fu, Dragon Breath",
+      "obtain_npc": "Martial Arts Master di Snow Mountain (Second Sea) atau Castle on the Sea (Third Sea)"
+    },
+    {
+      "name": "Death Step",
+      "level_required": 700,
+      "beli_required": 2500000,
+      "fragments_required": 5000,
+      "mastery_required": "400 Mastery pada Dark Step",
+      "other_requirements": "Mendapatkan Library Key dari Awakened Ice Admiral di Ice Castle (Second Sea)",
+      "obtain_npc": "Phoenicis di Ice Castle (Second Sea) atau Castle on the Sea (Third Sea)"
+    },
+    {
+      "name": "Sharkman Karate",
+      "level_required": 700,
+      "beli_required": 2500000,
+      "fragments_required": 5000,
+      "mastery_required": "400 Mastery pada Water Kung Fu",
+      "other_requirements": "Mendapatkan Water Key dari Tide Keeper di Forgotten Island (Second Sea)",
+      "obtain_npc": "Daigrock the Sharkman di Forgotten Island (Second Sea) atau Castle on the Sea (Third Sea)"
+    },
+    {
+      "name": "Electric Claw",
+      "level_required": 1500,
+      "beli_required": 3000000,
+      "fragments_required": 5000,
+      "mastery_required": "400 Mastery pada Electric",
+      "other_requirements": "Menyelesaikan quest lari cepat 30 detik ke Mansion dari Previous Hero di Floating Turtle (Third Sea)",
+      "obtain_npc": "Previous Hero di Floating Turtle (Third Sea) atau Castle on the Sea (Third Sea)"
+    },
+    {
+      "name": "Dragon Talon",
+      "level_required": 1500,
+      "beli_required": 3000000,
+      "fragments_required": 5000,
+      "mastery_required": "400 Mastery pada Dragon Breath",
+      "other_requirements": "Mendapatkan Fire Essence dari Death King di Haunted Castle (Third Sea) lalu berikan ke Uzoth",
+      "obtain_npc": "Uzoth di Haunted Castle (Third Sea) atau Castle on the Sea (Third Sea)"
+    },
+    {
+      "name": "Observation Haki V2 (Ken V2 / Instinct V2)",
+      "level_required": 1800,
+      "beli_required": 5000000,
+      "other_requirements": "5000 EXP pada Ken Haki V1, menyelesaikan Citizen's Quest (Musketeer Hat), menyelesaikan Hungry Man Quest (Apple, Banana, Pineapple)",
+      "obtain_npc": "Hungry Man di Floating Turtle (Third Sea)"
+    },
+    {
+      "name": "Beast Hunter",
+      "desc": "Unlock Kapal Beast Hunter di Sea 3",
+      "materials_required": [
+        {"name": "Leviathan Heart", "amount": 1},
+        {"name": "Leviathan Scales", "amount": 20},
+        {"name": "Fool's Gold", "amount": 30},
+        {"name": "Shark Teeth", "amount": 6},
+        {"name": "Electric Wings", "amount": 10}
+      ],
+      "obtain_npc": "Beast Hunter NPC di Tiki Outpost (Third Sea)"
+    }
+  ],
+  "specific_joki_rules": {
+    "v4_awakening": {
+      "desc": "Race Awakening V4 (Trials & Training)",
+      "fragment_costs": {
+        "gear_0_to_1": 0,
+        "gear_1_to_2": 3000,
+        "gear_2_to_3": 3500,
+        "gear_3_to_4": 4000,
+        "gear_4_to_5": 5000
+      },
+      "rules": [
+        "Wajib tanyakan: 'Dari Gear berapa ke Gear berapa?'",
+        "Wajib infokan: Biaya fragment ditanggung pelanggan sendiri, KECUALI mengambil paket 'Race V4 Full Gear' (Rp45.000) atau 'Race V4 Full Gear + FT' (Rp50.000) (ini sudah include training/fragment).",
+        "Jika joki V4 dari Gear 0 ke 1: Informasikan bahwa tidak memerlukan fragment sama sekali.",
+        "Wajib tanyakan untuk upgrade Gear satuan > 1 (seperti 1-2, 2-3, 3-4): 'Sudah selesai train sebelumnya apa belum?'",
+        "Untuk upgrade multi-gear (misal 0-3): Akumulasikan biaya fragment dari tiap tingkat latihan (Gear 1 + Gear 2 = 3000 + 3500 = 6500 fragments). Informasikan jumlah total fragment ini ke user dan tanyakan apakah mereka punya fragment segitu.",
+        "Infokan harga joki fragment kita jika mereka tidak punya: Rp1.000 per 1000 fragments jika menggunakan fruit (buah iblis) sendiri untuk raid, atau Rp2.000 per 1000 fragments jika menggunakan fruit dari worker.",
+        "Wajib tanyakan: 'Mau pake fruit sendiri atau dari worker untuk pemicunya?' (Harganya berbeda sesuai pricelist).",
+        "PENTING (Tanyakan yang penting aja jangan panjang-panjang): Cukup tanyakan satu pertanyaan kunci ini: 'Sudah pull lever (tarik tuas di Temple of Time) apa belum?'"
+      ]
+    },
+    "beast_hunter": {
+      "desc": "Unlock Kapal Beast Hunter di Sea 3",
+      "rules": [
+        "PENTING (Tanyakan yang penting aja jangan panjang-panjang): Cukup tanyakan pertanyaan kunci ini: 'Sudah punya item/bahan apa saja dari persyaratannya atau tinggal kurang apa?'",
+        "Persyaratannya: 1 Leviathan Heart, 20 Leviathan Scales, 30 Fool's Gold, 6 Shark Teeth, 10 Electric Wings."
+      ]
+    },
+    "adaptive_prerequisites": {
+      "desc": "Aturan umum bertanya syarat joki secara ringkas untuk item/style lain agar tidak panjang lebar",
+      "rules": [
+        "CDK (Cursed Dual Katana): Cukup tanyakan: 'Level udah 2200 belum? Yama ama Tushita udah 350 mastery?'",
+        "Godhuman: Cukup tanyakan: 'Beli ada 5 juta? Mastery fighting style sebelumnya (Superhuman, Death Step, Sharkman Karate, Dragon Talon, Electric Claw) udah pada 400 belum?'",
+        "True Triple Katana (TTK): Cukup tanyakan: 'Udah punya pedang Saddi, Shisui, Wando di 300 mastery?'",
+        "Sanguine Art: Cukup tanyakan: 'Udah punya Leviathan Heart?'",
+        "Observation Haki V2 (Ken V2): Cukup tanyakan: 'Level udah 1800 belum? Ken V1 udah 5000 exp?'",
+        "Jasa lainnya: Tanyakan hanya prasyarat utama yang paling krusial saja secara singkat, santai, dan spontan."
+      ]
+    }
+  },
+  "fruit_trade_values": [
+    {"name": "Kitsune", "street_value": "115,000,000 value", "demand": "10/10", "type": "Physical Beast Fruit"},
+    {"name": "Dragon", "street_value": "110,000,000 value", "demand": "10/10", "type": "Physical Beast Fruit (Rework hype)"},
+    {"name": "Leopard", "street_value": "45,000,000 value", "demand": "9/10", "type": "Physical Beast Fruit"},
+    {"name": "Dough", "street_value": "20,000,000 value", "demand": "9/10", "type": "Physical Elemental Fruit"},
+    {"name": "T-Rex", "street_value": "20,000,000 value", "demand": "8/10", "type": "Physical Beast Fruit"},
+    {"name": "Mammoth", "street_value": "12,500,000 value", "demand": "7/10", "type": "Physical Beast Fruit"},
+    {"name": "Spirit", "street_value": "10,000,000 value", "demand": "7/10", "type": "Physical Natural Fruit"},
+    {"name": "Venom", "street_value": "9,000,000 value", "demand": "7/10", "type": "Physical Natural Fruit"},
+    {"name": "Control", "street_value": "8,000,000 value", "demand": "6/10", "type": "Physical Natural Fruit"},
+    {"name": "Buddha", "street_value": "7,000,000 value", "demand": "10/10", "type": "Physical Natural Fruit (Best for grinding)"},
+    {"name": "Portal", "street_value": "6,000,000 value", "demand": "9/10", "type": "Physical Natural Fruit (Best for PvP travel)"},
+    {"name": "Rumble", "street_value": "5,000,000 value", "demand": "8/10", "type": "Physical Elemental Fruit"},
+    {"name": "Blizzard", "street_value": "5,000,000 value", "demand": "7/10", "type": "Physical Elemental Fruit"}
+  ],
+  "game_mechanics": {
+    "moon_cycle": "Siklus Bulan Purnama (Full Moon) terjadi setiap 3-4 hari waktu game (sekitar 80 menit dunia nyata). Berlangsung selama 1 malam penuh (~15 menit). Diperlukan untuk Mirage Island (mencari Blue Gear) dan quest awal Soul Guitar.",
+    "legendary_sword_dealer": "Spawns setiap 4 jam sekali di Second Sea di lokasi random (Colosseum, Green Zone, Graveyard, dll). Hanya menetap selama 15 menit. Menjual pedang Wando, Shisui, Saddi masing-masing seharga 2,000,000 Beli. Tiga pedang ini dibutuhkan untuk True Triple Katana (TTK) setelah ketiganya mencapai Mastery 300.",
+    "dough_king_summon": "Kalahkan 500 musuh di Chocolate Land (Third Sea), lalu bawa Sweet Chalice (dibuat dari God's Chalice + 10 Cocoa Powder) ke portal di Cocoa Land untuk men-summon boss Dough King. Mengalahkannya memberikan drop Red Key (untuk Dough Awakening)."
+  }
+}
