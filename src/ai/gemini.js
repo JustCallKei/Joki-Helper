@@ -49,8 +49,7 @@ function normalizeHistory(history = []) {
     }));
 }
 
-async function getPricelistSummary() {
-  const items = await prisma.priceItem.findMany({ orderBy: { name: 'asc' } });
+function getPricelistSummary(items) {
   return items.map(item => `- ${item.name} | ${item.type} | Rp ${Number(item.basePrice || 0).toLocaleString('id-ID')} | syarat: ${safeRequirements(item.requirements).join(', ') || '-'}`).join('\n');
 }
 
@@ -134,8 +133,7 @@ function formatCalcResult(result) {
   return lines.join('\n');
 }
 
-async function buildCalculationContext(lastUserText) {
-  const priceItems = await prisma.priceItem.findMany();
+async function buildCalculationContext(lastUserText, priceItems) {
   const request = extractCalculationRequest(lastUserText, priceItems);
   if (!request || !request.currentLevel) return '';
   try {
@@ -143,7 +141,7 @@ async function buildCalculationContext(lastUserText) {
       request.currentLevel,
       request.targetLevel || null,
       request.selectedItems,
-      {}
+      { priceItems }
     );
     return formatCalcResult(result);
   } catch (error) {
@@ -184,11 +182,16 @@ async function callGeminiWithRotation(contents, systemInstruction) {
 async function getGeminiReply(chatHistory = [], allowHarsh = true, userId = null, sessionId = null, source = 'DISCORD') {
   const normalized = normalizeHistory(chatHistory);
   const lastUserText = [...chatHistory].reverse().find(m => m.role !== 'model')?.content || '';
-  const [pricelist, memory, calcContext] = await Promise.all([
-    getPricelistSummary(),
+
+  // Fetch price items once to prevent redundant DB calls
+  const priceItems = await prisma.priceItem.findMany({ orderBy: { name: 'asc' } });
+
+  const [memory, calcContext] = await Promise.all([
     sessionId ? getSessionContext(sessionId).catch(() => ({ summary: '', buffer: [] })) : Promise.resolve({ summary: '', buffer: [] }),
-    buildCalculationContext(lastUserText)
+    buildCalculationContext(lastUserText, priceItems)
   ]);
+
+  const pricelist = getPricelistSummary(priceItems);
   const kb = loadJsonSafe('blox_fruit_kb.json', {});
   const systemInstruction = buildSystemPrompt({ allowHarsh, userId, source, pricelist, kb, memory });
 

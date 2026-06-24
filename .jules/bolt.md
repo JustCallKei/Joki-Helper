@@ -1,0 +1,3 @@
+## 2024-11-13 - Redundant DB Queries in Gemini AI context generation
+**Learning:** Found a major performance bottleneck where Prisma queried the exact same full `priceItem` table multiple times (up to 3 times) per AI message generation sequentially inside nested context generation functions.
+**Action:** Lift the DB query to the highest point (`getGeminiReply`), fetch it once, and pass it down synchronously to nested context builders like `getPricelistSummary` and `calculateJockeyPrice`. Ensure utility functions maintain backwards compatibility by falling back to `findMany()` if the cache is omitted.
