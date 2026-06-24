@@ -140,8 +140,8 @@ async function calculateJockeyPrice(currentLevel, targetLevel, selectedItemNames
     throw new Error('target_lower');
   }
 
-  // --- Load all price items from DB ---
-  const allPriceItems = await prisma.priceItem.findMany();
+  // --- Load all price items from DB (or use provided cache) ---
+  const allPriceItems = options.priceItems || await prisma.priceItem.findMany();
 
   const normalizeName = (value) => String(value || '')
     .toLowerCase()
